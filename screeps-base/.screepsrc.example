@@ -1,0 +1,39 @@
+;If you launch the server without running the local Steam client,
+;then the Steam Web API key is required for authenticating users.
+;It can be obtained on this page: http://steamcommunity.com/dev/apikey
+steam_api_key = 1234567890
+
+;The port number on which the game server should listen.
+port = 21025
+
+;The hostname on which the game server should listen.
+host = 0.0.0.0
+
+;The server password which should be provided on user sign in.
+password = 1234
+
+;The port number on which the CLI server should listen. Defaults to port+1.
+cli_port = 21026
+
+;The hostname on which the CLI server should listen.
+cli_host = localhost
+
+;The number of parallel runner worker processes to launch. Don't set this
+;option greater than the number of your physical CPU cores.
+runners_cnt = 1
+
+;The number of parallel processor worker processes to launch. Don't set this
+;option greater than the number of your physical CPU cores.
+processors_cnt = 1
+
+;The path to directory where logs will be created.
+logdir = logs
+
+;The path to JSON file with the list of custom mods to load.
+modfile = mods.json
+
+;The path to directory where static assets are located.
+assetdir = assets
+
+;The path to the database file.
+db = db.json

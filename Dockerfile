@@ -10,7 +10,6 @@ VOLUME /home/screeps
 USER screeps
 RUN npm i -g screeps
 WORKDIR /home/screeps
-RUN ls -al
 CMD ["screeps", "start"]
 EXPOSE 21025
 EXPOSE 21026

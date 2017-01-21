@@ -1,5 +1,5 @@
-FROM node:6.9.1
-MAINTAINER Brooks Patton <scgryphon@sbcglobal.net>
+FROM node:6
+MAINTAINER Brooks Patton
 RUN useradd -d /home/screeps -m screeps
 RUN chown -R screeps /usr/local/share/man
 RUN chown -R screeps /usr/local/bin

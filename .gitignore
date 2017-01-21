@@ -1,2 +1,6 @@
 data
 .screepsrc
+.idea
+node_modules
+cwd
+build.bat

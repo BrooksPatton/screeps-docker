@@ -1,0 +1,29 @@
+version: '3'
+services:
+  screeps:
+    build: .
+    ports:
+      - "21025-21026:21025-21026"
+    networks:
+      screeps:
+        ipv4_address: 192.168.0.10
+    depends_on:
+      - mongo
+      - redis
+  mongo:
+    image: mongo:latest
+    networks:
+      screeps:
+        ipv4_address: 192.168.0.11
+    ports:
+      - "27017:27017"
+  redis:
+    image: redis:latest
+    networks:
+      screeps:
+        ipv4_address: 192.168.0.12
+networks:
+  screeps:
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24

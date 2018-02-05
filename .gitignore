@@ -4,3 +4,4 @@ data
 node_modules
 cwd
 build.bat
+api-key

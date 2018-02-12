@@ -1,22 +1,20 @@
 FROM node:9
 MAINTAINER Brooks Patton
-RUN useradd -d /home/screeps -m screeps
-RUN chown -R screeps /usr/local/share/man
-RUN chown -R screeps /usr/local/bin
-RUN chown -R screeps /usr/local/include/node
-RUN chown -R screeps /usr/local/lib/node_modules
-RUN chown -R screeps:screeps /home/screeps
-ADD ./api-key /home/screeps
-ADD ./initScreeps.sh /home/screeps
-ADD ./mongo-redis-config /home/screeps
+RUN useradd -m screeps
+RUN mkdir /data
+ADD ./api-key /data
+ADD ./initScreeps.sh /data
+ADD ./mongo-redis-config /data
+RUN chown -R screeps:screeps /data
 USER screeps
-RUN npm i -g screeps
-WORKDIR /home/screeps
+WORKDIR /data
+RUN npm init -y
+RUN npm i screeps
 RUN ./initScreeps.sh
 RUN mkdir mods
-ADD ./mods/package.json /home/screeps/mods
+ADD ./mods/package.json /data/mods
 RUN npm i --prefix ./mods screepsmod-mongo
-ADD ./mods.json /home/screeps
+ADD ./mods.json /data
 EXPOSE 21025
 EXPOSE 21026
-CMD screeps start
+CMD npx screeps start

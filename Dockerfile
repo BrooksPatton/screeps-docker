@@ -1,5 +1,6 @@
 FROM node:9
 MAINTAINER Brooks Patton
+RUN apt-get update && apt-get install -y vim
 RUN useradd -m screeps
 RUN mkdir /data
 ADD ./api-key /data
